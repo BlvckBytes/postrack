@@ -1,27 +1,24 @@
 # Postrack
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4.
+Polling tracker app for austrian-post parcel-service tracking numbers
 
-## Development server
+## Introduction
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+I usually send and receive quite a lot of packages using austrian-post, which is why I want to have an app where I can do the following:
 
-## Code scaffolding
+* Enter tracking numbers with corresponding short-names and optional descriptions
+* Have that list saved on the device for quick access
+* Poll in the background to find updates by diffing
+* Then spawn a new notification on the device
+* Put old numbers in an archive for later access
+* Some kind of backup mechanism, probably just local file I/O
+* And thus: **no** backend.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+With two main requirements:
 
-## Build
+* Web-App (serviceworker), no playstore installable heavyweight kind of app
+* Beautiful GUI, of course, with great UX, fast and non-obnoxious
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Proxying
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Sadly, austrian post sets CORS headers on their GraphQL REST-Endpoint, which is why I need to proxy the request through my own proxy. Username and password are saved in `.env`, and generated into angular environment-files pre-start and pre-build. You can just use your own proxy and yank all of that right out of the project, if you so desire.
