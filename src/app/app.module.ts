@@ -4,6 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TrackingNumberService } from './services/tracking-number.service';
+import { CoreModule } from './core/core.module';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,8 @@ import { TrackingNumberService } from './services/tracking-number.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    CoreModule,
+    PagesModule,
   ],
   providers: [
     TrackingNumberService,

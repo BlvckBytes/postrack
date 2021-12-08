@@ -6,6 +6,12 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <script>
+    const setVPH = () => document.documentElement.style.setProperty('--vpH', `${window.innerHeight}px`);
+    window.onresize = () => setVPH();
+    setVPH();
+  </script>
 </head>
 <body>
   <app-root></app-root>

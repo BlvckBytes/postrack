@@ -11,6 +11,8 @@ I usually send and receive quite a lot of packages using austrian-post, which is
 * Poll in the background to find updates by diffing
 * Then spawn a new notification on the device
 * Put old numbers in an archive for later access
+* Lists have sortable order
+* Items are colorable
 * Some kind of backup mechanism, probably just local file I/O
 * And thus: **no** backend.
 

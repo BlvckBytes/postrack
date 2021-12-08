@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { TrackingNumberService } from './services/tracking-number.service';
+import { links } from './navigation-links';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,10 @@ import { TrackingNumberService } from './services/tracking-number.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  get navLinks() {
+    return links;
+  }
 
   @ViewChild('result') result!: ElementRef;
 

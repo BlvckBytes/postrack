@@ -1,0 +1,18 @@
+<ul class="pages">
+  <li
+    #button
+    *ngFor="let link of links"
+    [class.page-item--active]="link.active"
+    class="page-item"
+    (click)="navigateTo(link)"
+  >
+    <img class="page-item__icon" src="graphics/{{link.icon}}.svg" alt="{{link.icon}}">
+    <p class="page-item__text">{{link.text}}</p>
+  </li>
+
+  <div class="highlighter" #highlighter>
+    <img class="highlighter__rect" src="graphics/highlight_rect.svg">
+    <div class="highlighter__icon"></div>
+    <img class="highlighter__rect" src="graphics/highlight_rect.svg">
+  </div>
+</ul>
