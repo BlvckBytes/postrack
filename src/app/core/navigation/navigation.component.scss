@@ -1,4 +1,9 @@
+@use 'sass:math';
+
 $height: 3.8rem;
+$timingfunc: cubic-bezier(.44,-0.1,.64,1.12);
+$timingdur: 110ms;
+
 :host {
   width: 100%;
   height: $height;
@@ -35,7 +40,7 @@ $height: 3.8rem;
     position: relative;
     z-index: 2;
     bottom: 0;
-    transition: bottom 200ms ease;
+    transition: bottom calc($timingdur + 30ms) $timingfunc;
   }
 
   &__text {
@@ -48,7 +53,7 @@ $height: 3.8rem;
   $r: &;
   &--active {
     #{$r}__icon {
-      bottom: $height / 2;
+      bottom: math.div($height, 2);
     }
     #{$r}__text {
       display: block;
@@ -68,7 +73,7 @@ $height: 3.8rem;
   align-items: center;
   justify-content: center;
   background: var(--darkblue);
-  transition: left 100ms ease;
+  transition: left $timingdur $timingfunc;
 
   &__icon {
     background: var(--primary);
@@ -81,7 +86,7 @@ $height: 3.8rem;
 
   &__rect {
     position: absolute;
-    width: 2rem;
+    width: 60%;
     top: 49%;
     z-index: 3;
 
