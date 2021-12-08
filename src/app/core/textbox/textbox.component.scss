@@ -1,0 +1,165 @@
+@use "util" as *;
+
+:host {
+  background: var(--white);
+  display: inline-block;
+}
+
+:host {
+  width: 100%;
+  transition: margin 100ms ease;
+
+  &, .textbox {
+    // Default border-radius
+    border-radius: .9em;
+  }
+
+  // Placeholder hidden
+  &.--hidden-placeholder {
+    .textbox__placeholder {
+      opacity: 0;
+    }
+  }
+
+  // Clear cross displayed
+  &.--clearable {
+    .textbox__clear {
+      display: block;
+    }
+  }
+
+  // Large input
+  &.--large {
+
+    &, .textbox {
+      // Smaller border-radius
+      border-radius: .7em;
+
+      // Whitespace, resizable height (clamped to min)
+      &__input {
+        padding: var(--spc-sm);
+        resize: vertical;
+        min-height: 5em;
+      }
+
+      // At top left
+      &__placeholder {
+        top: var(--spc-sm);
+        left: var(--spc-sm);
+        transform: none;
+      }
+    }
+  }
+
+  // Has content in textbox
+  &.--has-content {
+    margin-top: 2rem;
+
+    // Shift placeholder if input has a value
+    .textbox__placeholder {
+      color: var(--white);
+      transform: translateY(calc(-100% + -1.3rem - var(--spc-sm)));
+    }
+  }
+}
+
+// Move to different height, and shift to even column (x)
+:host.--large.--has-content .textbox__placeholder {
+  transform: translate(
+    calc((2 * var(--spc-sm)) + var(--icn-sm) - var(--spc-sm)),
+    calc(-100% + -1.3rem - var(--spc-sm))
+  );
+}
+
+.textbox {
+  $r: &;
+
+  display: flex;
+  align-items: center;
+  padding: var(--spc-sm);
+  border: 0.15em solid var(--white);
+
+  // Wrapper to have placeholder relative to input
+  &__wrapper {
+    position: relative;
+    isolation: isolate;
+    flex-grow: 1;
+    display: flex;
+  }
+
+  // Placeholder is behind input
+  &__placeholder {
+    color: var(--darkblue);
+    position: absolute;
+    inset: 50% auto auto 0;
+    z-index: 1;
+    transform: translateY(-50%);
+    transition: transform 100ms ease, opacity 30ms ease;
+    font-size: 1rem;
+  }
+
+  &__icon {
+    width: var(--icn-sm);
+    height: var(--icn-sm);
+    margin: 0 var(--spc-sm);
+  }
+
+  // Clear cross
+  &__clear {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    width: .6rem;
+    padding: 1rem var(--spc-sm) 1rem 1rem;
+    box-sizing: content-box;
+    z-index: 3;
+  }
+
+  // Transparent input
+  &__input {
+    color: var(--darkblue);
+    position: relative;
+    border: none;
+    background: transparent;
+    z-index: 2;
+    flex-grow: 1;
+    font-size: 1rem;
+    width: 100%;
+
+    &:focus {
+      // No outline on focus
+      outline: none;
+    }
+  }
+
+  // Validation passed
+  @at-root :host.--valid & {
+    border: 0.20em solid var(--success);
+  }
+
+  // Validation failed
+  @at-root :host.--invalid & {
+    border: 0.20em solid var(--warning);
+    background: var(--warning-dark-opac);
+  }
+}
+
+.errors {
+  text-align: center;
+
+  :host::ng-deep & p {
+    color: var(--warning);
+    &:only-child {
+      padding: var(--spc-sm) 0;
+    }
+
+    &:not(:only-child) &:first-of-type {
+      padding-top: var(--spc-sm);
+    }
+
+    &:not(:only-child) &:last-of-type {
+      padding-bottom: var(--spc-sm);
+    }
+  }
+}

@@ -4,6 +4,7 @@ import { PagePackagesComponent } from './page-packages/page-packages.component';
 import { PageAddComponent } from './page-add/page-add.component';
 import { PageArchiveComponent } from './page-archive/page-archive.component';
 import { PageEventsComponent } from './page-events/page-events.component';
+import { CoreModule } from '../core/core.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { PageEventsComponent } from './page-events/page-events.component';
   ],
   imports: [
     CommonModule,
+    CoreModule,
   ],
   exports: [
     PagePackagesComponent,
