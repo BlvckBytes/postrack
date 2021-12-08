@@ -1,4 +1,7 @@
+<!-- List of available pages -->
 <ul class="pages">
+
+  <!-- Individual page -->
   <li
     #button
     *ngFor="let link of links"
@@ -6,13 +9,20 @@
     class="page-item"
     (click)="navigateTo(link)"
   >
+    <!-- Icon and short text -->
     <img class="page-item__icon" src="graphics/{{link.icon}}.svg" alt="{{link.icon}}">
     <p class="page-item__text">{{link.text}}</p>
   </li>
 
+  <!-- Movable highlighter mask -->
   <div class="highlighter" #highlighter>
+    <!-- Left curve rectangle -->
     <img class="highlighter__rect" src="graphics/highlight_rect.svg">
+
+    <!-- Highlighted icon circle -->
     <div class="highlighter__icon"></div>
+
+    <!-- Right curve rectangle -->
     <img class="highlighter__rect" src="graphics/highlight_rect.svg">
   </div>
 </ul>

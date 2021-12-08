@@ -10,6 +10,8 @@ const routes: Routes = [
   { path: 'add', component: PageAddComponent },
   { path: 'archive', component: PageArchiveComponent },
   { path: 'events', component: PageEventsComponent },
+
+  // Fallback to default route
   { path: '**', redirectTo: 'packages' },
 ];
 
