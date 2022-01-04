@@ -3,6 +3,7 @@
 :host {
   background: var(--white);
   display: inline-block;
+  height: fit-content;
 }
 
 :host {
@@ -77,7 +78,6 @@
   display: flex;
   align-items: center;
   padding: var(--spc-sm);
-  border: 0.15em solid var(--white);
 
   // Wrapper to have placeholder relative to input
   &__wrapper {
@@ -111,7 +111,7 @@
     transform: translateY(-50%);
     right: 0;
     width: .6rem;
-    padding: 1rem var(--spc-sm) 1rem 1rem;
+    padding: var(--spc-sm);
     box-sizing: content-box;
     z-index: 3;
   }

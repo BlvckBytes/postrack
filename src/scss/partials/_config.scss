@@ -4,9 +4,10 @@
 $main-palette: (
     primary: #FFE162,
     primaryGlow: color.adjust(#FFE162, $alpha: -0.75),
+    primaryActive: #DE9814,
     darkblue: #00032B,
     warning: #FF7777,
-    success: #14DE69
+    success: #14DE69,
 );
 
 /// Generic palette containing only black, white and shades of them
@@ -57,10 +58,10 @@ $var-states: (
         spc-xxl: 2.9rem,
 
         // Icons
-        icn-sm: 1.2rem,
-        icn-md: 1.6rem,
-        icn-lg: 2.3rem,
-        icn-xl: 3.6rem,
+        icn-sm: .9rem,
+        icn-md: 1.2rem,
+        icn-lg: 1.5rem,
+        icn-xl: 2rem,
     ),
 
     television: (),
@@ -74,10 +75,10 @@ $var-states: (
         fs-h4: .7rem,
         fs-p1: .8rem,
 
-        icn-sm: 1rem,
-        icn-md: 1.5rem,
-        icn-lg: 2rem,
-        icn-xl: 3rem,
+        icn-sm: 0.9rem,
+        icn-md: 1.2rem,
+        icn-lg: 1.5rem,
+        icn-xl: 2rem,
     )
 );
 

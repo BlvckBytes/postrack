@@ -2,6 +2,7 @@
   <img *ngIf="icon" class="textbox__icon" src="graphics/{{icon}}.svg" alt="{{icon}}">
 
   <div class="textbox__wrapper">
+    <!-- Multiline input -->
     <textarea
       *ngIf="isTextarea; else lineInp"
       [formControl]="control"
@@ -10,6 +11,7 @@
       [email]="type === 'email'"
     ></textarea>
 
+    <!-- Single line input -->
     <ng-template #lineInp>
       <input
         [formControl]="control"
@@ -20,7 +22,10 @@
       >
     </ng-template>
 
+    <!-- Custom placeholder -->
     <p class="textbox__placeholder">{{placeholder || 'Placeholder'}}</p>
+
+    <!-- Clear cross button -->
     <img (click)="clear()" class="textbox__clear" src="graphics/cross.svg" alt="cross">
   </div>
 </div>
